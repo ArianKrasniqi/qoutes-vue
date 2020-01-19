@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="panel panel-default">
-      <div class="panel-body qoute">
+      <div class="panel-body quote">
         <slot></slot>
       </div>
     </div>

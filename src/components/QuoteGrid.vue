@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <h1>Hajdar</h1>
+    <hr />
     <app-quote v-for="quote in quotes">
       <h3>{{ quote }}</h3>
     </app-quote>
