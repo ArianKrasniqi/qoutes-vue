@@ -1,7 +1,14 @@
 <template>
   <div class="container">
+    <app-progress
+      :quoteCount="quotes.length"
+      :maxQuotes="maxQuotes"
+    ></app-progress>
     <app-newQuote @quoteAdded="newQuote($event)"></app-newQuote>
-    <app-quoteGrid :quotes="quotes"></app-quoteGrid>
+    <app-quoteGrid
+      :quotes="quotes"
+      @quoteDeleted="deleteQoute($event)"
+    ></app-quoteGrid>
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="alert alert-info">Click on Qoute to delete it!</div>
@@ -13,6 +20,7 @@
 <script>
 import QuoteGrid from "./components/QuoteGrid.vue";
 import NewQuote from "./components/NewQuote.vue";
+import Progress from "./components/Progress.vue";
 
 export default {
   data: function() {
@@ -23,13 +31,19 @@ export default {
   },
   methods: {
     newQuote(quote) {
-      console.log(quote);
+      if (this.quotes.length == 10) {
+        return alert("Please delete a quote first!");
+      }
       this.quotes.push(quote);
+    },
+    deleteQoute(index) {
+      this.quotes.splice(index, 1);
     }
   },
   components: {
     appQuoteGrid: QuoteGrid,
-    appNewQuote: NewQuote
+    appNewQuote: NewQuote,
+    appProgress: Progress
   }
 };
 </script>

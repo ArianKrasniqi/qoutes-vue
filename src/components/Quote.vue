@@ -10,9 +10,9 @@
 
 <script></script>
 
-<style>
+<style scoped>
 .panel-body {
-  font-family: "Arizonia", cursive;
+  font-family: "Pacifico", cursive;
   font-size: 24px;
   color: #6e6e6e;
 }
@@ -23,5 +23,9 @@
 
 .quote:hover {
   background-color: #ffe2e2;
+}
+
+.row {
+  margin: 0 !important;
 }
 </style>
